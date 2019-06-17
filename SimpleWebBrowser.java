@@ -8,9 +8,6 @@ import java.net.URL;
 
 public class SimpleWebBrowser extends JPanel {
 
-   /**
-    * The main routine simply opens a window that shows a SimpleWebBrowser panel.
-    */
    public static void main(String[] args) {
       JFrame window = new JFrame("SimpleWebBrowser");
       SimpleWebBrowser content = new SimpleWebBrowser();
@@ -25,33 +22,12 @@ public class SimpleWebBrowser extends JPanel {
    
 
 
-
-
-   ///
-   //
-
-
-
-   /**
-    * The pane in which documents are displayed.
-    */
    private JEditorPane editPane;
    
    
-   /**
-    * An input box where the user enters the URL of a document
-    * to be loaded into the edit pane.  A value URL string has
-    * to contain the substring "://".  If the string in the box
-    * does not contain this substring, then "http://" is 
-    * prepended to the string.
-    */
    private JTextField locationInput;
    
    
-   /**
-    * Defines a listner that responds when the user clicks on
-    * a link in the document.
-    */
    private class LinkListener implements HyperlinkListener {
       public void hyperlinkUpdate(HyperlinkEvent evt) {
          if (evt.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
@@ -60,12 +36,6 @@ public class SimpleWebBrowser extends JPanel {
       }
    }
    
-   
-   /**
-    * Defines a listener that loads a new page when the user
-    * clicks the "Go" button or presses return in the location
-    * input box.
-    */
    private class GoListener implements ActionListener {
       public void actionPerformed(ActionEvent evt) {
          URL url;
@@ -89,10 +59,6 @@ public class SimpleWebBrowser extends JPanel {
    }
 
    
-   /**
-    * Construct a panel that contains a JEditorPane in a JScrollPane,
-    * with a tool bar that has a Location input box and a Go button.
-    */
    public SimpleWebBrowser() {
 	
 
@@ -121,10 +87,6 @@ public class SimpleWebBrowser extends JPanel {
 
    }
    
-   
-   /**
-    * Loads the document at the specified URL into the edit pane.
-    */
    private void loadURL(URL url) {
       try {
          editPane.setPage(url);
